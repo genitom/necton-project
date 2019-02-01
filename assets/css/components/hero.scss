@@ -1,0 +1,290 @@
+.hero{
+    overflow: hidden;
+}
+.hero-carousel-items{
+    position: relative;
+}
+.hero-carousel-item{
+    padding-bottom: 150px;
+    display: none;
+    height: 620px;
+}
+.hero-carousel-item--1{
+    background-color: $azul;
+}
+.hero-figure{
+    position: relative;
+}
+.hero-figure-lencol{
+    top: 100px;
+    left: -20px;
+    position: absolute;
+    max-width: 600px;
+}
+.hero-figure-setas{
+    left: 10%;
+    top: 70px;
+    position: absolute;
+    max-width: 400px;   
+}
+.hero-container{
+    padding: 140px 0 0;
+    text-align: left;
+    width: 80%;
+    max-width: 400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+.hero-container > p{
+    padding-top: 80px;
+}
+.hero-container > p:nth-child(2) a{
+    display: inline-block;
+    width: auto;
+    line-height: 30px;
+}
+.hero-text{
+    font-size: 40px;
+    width: 70%;
+}
+.hero-text > span{
+    background-color: $pink;
+    color: $azul;
+}
+
+// hero carousel item 2
+.hero-carousel-item--2{
+    background: url('../img/hero-woman.png') no-repeat;
+    background-size: cover;
+    background-position:0 -220px;
+    width: 1150px;
+    .hero-figure-lencol{
+        top: 180px;
+        left: -20px;
+    }
+    .hero-figure-setas{
+        left: 30px;
+        top: -300px;
+    }
+    .hero-container{
+        padding: 180px 0 0;
+        margin-left: 30px;
+    }
+    .hero-container > p{
+        padding-top: 40px;
+    }
+    .hero-text > span{
+        background-color: inherit;
+        border: 2px solid white;
+        color: $azul;
+    }
+    
+
+}
+
+
+// hero-prev e hero-next
+.hero-prev,.hero-next{
+    position: absolute;
+    width: 39px;
+    height: 171px;
+    background-color: $pink;
+    top: 250px;
+    display: none;
+    outline: none;
+    border: none;
+    z-index: 1;
+}
+.hero-next{
+    right: 0;
+}
+.hero-next::before{
+    content: '';
+    display: block;
+    position: absolute;
+    width: 30px;
+    height: 2px;
+    background-color: $azul;
+    transform: rotate(45deg);
+    top: 70px;
+}
+.hero-next::after{
+    content: '';
+    display: block;
+    position: absolute;
+    width: 30px;
+    height: 2px;
+    background-color:$azul;
+    transform: rotate(-45deg);
+    top: 90px;
+}
+
+.hero-prev::before{
+    content: '';
+    display: block;
+    position: absolute;
+    width: 30px;
+    height: 2px;
+    background-color: $azul;
+    transform: rotate(-45deg);
+    top: 70px;
+    left: 0;
+}
+.hero-prev::after{
+    content: '';
+    display: block;
+    position: absolute;
+    width: 30px;
+    height: 2px;
+    background-color: $azul;
+    transform: rotate(45deg);
+    top: 90px;
+    left: 0;
+}
+
+// hero dots
+.hero-dots{
+    position: absolute;
+    bottom: 20px;
+    left: calc(50% - 30px);
+}
+.hero-dot{
+    width: 10px;
+    height: 10px;
+    margin: 5px 7px;
+    display: inline-block;
+    transition: opacity .2s ease;
+    border-radius: 30px;
+    cursor: pointer;
+    border: 1px solid $azul;
+}
+
+.hero-carousel-item--1.active,.hero-carousel-item--2.active{
+    display: block;
+}
+.hero-dot:nth-child(2){
+    background-color: $azul;
+    border: 1px solid $azul;
+}
+.hero-dot.active:nth-child(1){
+    background-color: $pink;
+    border: 1px solid $pink;
+}
+.hero-dot.active:nth-child(2){
+    border: 1px solid $azul;
+}
+.hero-dot.active:nth-child(1),.hero-dot:nth-child(2){
+    border: 1px solid $pink;
+}
+
+//tablet
+@include tablet{
+    .hero-carousel-item{
+        padding-bottom: 200px;
+    }
+    .hero-prev,.hero-next{
+        display: block;
+    }
+    .hero-figure-lencol{
+        top: 100px;
+        left: 0px;
+        position: absolute;
+        width: 100%;
+        max-width: 700px;
+    }
+    .hero-figure-setas{
+        left: 30px;
+        top: 10px;
+        position: absolute;
+        max-width: 550px;  
+    }
+    .hero-text{
+        width: 100%;
+    }
+    .hero-text > span{
+        background-color: $pink;
+        color: $azul;
+        font-size: 50px;
+        display: inline-block;
+    }
+    .hero-container {
+        padding: 100px 0 0;
+    }
+    .hero-container > p:first-child{
+        font-size: 50px;
+    }
+    .hero-container > p:nth-child(2){
+        font-size: 25px;
+        line-height: 35px;
+    }
+    // hero item carousel 2
+    .hero-carousel-item--2{
+        background-position:0 -120px;
+        width: 100%;
+        background-size: cover;
+        background-position: left bottom;
+        .hero-figure-lencol{
+            top: 340px;
+            left: 100px;
+        }
+        .hero-figure-setas{
+            left: 60px;
+            top: 70px;
+        }
+        .hero-container{
+            padding: 120px 0 0;
+            margin-left: 50%;
+        }
+        .hero-container > p{
+            padding-top: 40px;
+        }
+        .hero-text > span{
+            background-color: inherit;
+            border: 3px solid $azul;
+            color: $azul;
+            font-weight: 400;
+            padding: 5px 10px;
+        }
+        
+    
+    }
+}
+
+@include desktop{
+    .hero-figure-lencol{
+        top: 0px;
+        left: 150px;
+        position: absolute;
+        width: 100%;
+        max-width: 1000px;
+    }
+    .hero-figure-setas{
+        display: none;
+    }
+    .hero-text{
+        width: 100%;
+    }
+    .hero-text > span{
+        background-color: $pink;
+        color: $azul;
+        font-size: 50px;
+        display: inline-block;
+    }
+    .hero-container {
+        padding: 100px 0 0;
+    }
+    .hero-container > p:first-child{
+        font-size: 50px;
+    }
+    .hero-container > p:nth-child(2){
+        font-size: 25px;
+        line-height: 35px;
+    }
+    // hero item carousel 2
+    .hero-carousel-item--2{
+        .hero-figure-lencol{
+            top: 100px;
+        }
+    }
+}

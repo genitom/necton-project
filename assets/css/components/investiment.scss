@@ -1,0 +1,191 @@
+.investiment{
+    position: relative;
+    font-size: 16px;
+    color: $azul;
+    padding: 20px 0 40px;
+}
+.investiment::before{
+    content: '';
+    display: block;
+    background: url('../img/Grafismo/Traço.png') no-repeat;
+    background-size: 100%;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: -135px;
+    z-index: 1;
+}
+.investiment-header{
+    margin-bottom: 40px;
+    p{
+        font-size: 0.950em;
+        color: $azul;
+    }
+}
+.investiment-header__title{
+    font-size: 2.5em;
+    font-weight: 400;
+    margin-bottom: 20px;
+    position: relative;
+    background-color: $pink;
+    padding: 5px 15px;
+    display: inline-block;
+    height: 100%;
+    &::before{
+            content: '>';
+            display: inline-block;
+            position: absolute;
+            left: -15px;
+        }
+}
+.investiment-container{
+}
+.investiment-items{
+    position: relative;
+    z-index: 3;
+}
+.investiment-item{
+    width: 100%;
+    margin-bottom: 30px;
+    img{
+        width: 40px;
+        display: block;
+        float: left;
+    }
+    p{
+        color: $azul;
+        padding-top: 10px;
+    }
+}
+.investiment-item:nth-child(1n+4){
+    display: none;
+}
+.investiment-item__title{
+    font-size: 1.2em;
+    font-weight: 400;
+}
+.investiment-item-container{
+    padding-left: 60px;
+    height: 100%;
+}
+.investiment-item-links{
+    padding-top: 10px;
+    a{
+        color: $cinza;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+}
+
+// Investiment icone
+.investiment-element{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.investiment-icone{
+    width: 50px;
+    height: 50px;
+    display: block;
+    border-radius: 50%;
+    background-color: $azul;
+    position: relative;
+    cursor: pointer;
+    &::after,&::before{
+        content: '';
+        display: block;
+        height: 25px;
+        width: 2px;
+        background-color: white;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+    }
+    &::before{
+        transform: translate(-50%,-50%) rotate(-90deg);
+    }
+}
+
+//Tablet
+@include tablet{
+    .investiment{
+        font-size: 18px;
+    }
+    .investiment::before{
+        top: -250px;
+    }
+    .investiment-header__title{
+        margin-bottom: 0px;
+        margin: 10px;
+    }
+    .investiment-header{
+        margin-bottom: 60px;
+        position: relative;
+        display: flex;
+        justify-content: space-around;
+    }
+    .investiment-header-text{
+        margin: 10px;
+        max-width: 400px;
+        p{
+            display: block;
+            font-size: 0.950em;
+            color: $azul;
+        }
+    }
+    .investiment-items{
+        position: relative;
+        z-index: 3;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    .investiment-item{
+        width: calc(50% - 40px);
+        margin: 20px;
+        img{
+            width: 60px;
+        }
+    }
+    .investiment-item:nth-child(1n+4){
+        display: block;
+    }
+    .investiment-item-container{
+        padding-left: 70px;
+    }
+    .investiment-item-links{
+        padding-top: 10px;
+        a{
+            color: $cinza;
+            font-size: 1em;
+            text-decoration: underline;
+        }
+    }
+    
+    // Investiment icone
+    .investiment-icone{
+        display: none;
+    }
+    
+}
+
+@include desktop{
+    .investiment::before{
+        top: -450px;
+    }
+    .investiment-item > img {
+        width: 70px;
+    }
+    .investiment-item-container {
+        padding-left: 80px;
+    }
+    .investiment-header__title {
+        font-size: 3.5em;
+    }
+    .investiment-header-text p {
+        font-size: 1em;;
+    }
+
+}

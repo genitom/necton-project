@@ -1,0 +1,278 @@
+.header{
+    position: absolute;
+    width: 100%;
+    padding: 30px;
+}
+.header-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 2000px;
+    margin: 0 auto;
+}
+.header-logo{
+    width: 137px;
+    height: 32px;
+    position: relative;
+    z-index: 4;
+    overflow: hidden;
+}
+.header-toggle{
+    width: 30px;
+    height: 30px;
+    background: none;
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    cursor: pointer;
+    z-index: 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 100ms ease;
+    &__icone{
+        width: 20px;
+        height: 2px;
+        background-color: white;
+        display: block;
+        position: absolute;
+        transition: 500ms;
+    }
+    &__icone:nth-child(1){
+        top: 5px;
+    }
+    &__icone:nth-child(2){
+        top: 13px;
+    }
+    &__icone:nth-child(3){
+        top: 21px;
+    }
+}
+.header-nav{
+    position: fixed;
+    top: -100%;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    background-color: $azul;
+    opacity: 0;
+    transition: 500ms;
+    z-index: 3;
+    visibility: hidden;
+}
+.header-nav-container{
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 40px;
+}
+.header-nav-links{
+    text-align: center;
+}
+.header-nav-link{
+    width: 100px;
+    display:-webkit-inline-box;
+    padding: 10px;
+}
+.header-nav-link:nth-child(1){
+    border: 2px solid white;
+    padding: 9px;
+    color: white;
+}
+.header-nav-link:nth-child(2){
+    background-color: $pink;
+    color: $azul;
+    text-align: left;
+}
+.header-nav-items{
+    margin-top: 30px;
+}
+.header-nav-item{
+    line-height: 30px;
+    position: relative;
+}
+
+// header-nav-sub
+.header-nav-sub{
+    display: none;
+}
+.header-nav-sub__link{
+    display: inline-block;
+    font-size: 1em;
+    color: $pink;
+}
+
+// arrow header-nav-item
+.header-nav-item:not(:nth-child(1n+7)):before{
+        content: '';
+        display: inline-block;
+        background: url('../img/Icone/seta.png') no-repeat;
+        background-size: contain;
+        width:10px;
+        height:15px;
+        float: left;
+        position: relative;
+        top: 5px;
+}
+.header-nav-item:last-child{
+    margin-top: 50px;
+}
+.header-nav-socials{
+    display: flex;
+}
+.header-nav-social{
+    line-height: 70px;
+}
+.header-nav-social:not(:last-child){
+    margin-right: 5px;
+}
+.header-nav-social{
+    display: block;
+    width: 30px;
+}
+.header.active .header-nav{
+    opacity: 1;
+    top: 0;
+    padding-top: 50px;
+    visibility: visible;
+}
+.header.active .header-toggle{
+    background-color: white;
+    border-radius: 50%;
+}
+.header.active .header-toggle__icone{
+    background-color: $azul;
+}
+.header.active .header-toggle__icone:nth-child(1){
+    transform: rotate(-135deg);
+    top: 13px;
+}
+.header.active .header-toggle__icone:nth-child(2){
+    opacity: 0;
+}
+.header.active .header-toggle__icone:nth-child(3){
+    transform: rotate(135deg);
+    top: 13px;
+}
+
+@include tablet{
+    // arrow header-nav-item
+    .header-nav-item:not(:nth-child(1n+7)):before{
+        height: 20px;
+        left: -10px;
+        top: 5px;
+    }
+    .header-nav-link{
+        width: 120px;
+        display: inline-block;
+        padding: 10px;
+        font-size: 20px;
+    }
+    .header-nav-item__link{
+        font-size: 20px;
+    }
+    .header-nav-social{
+        display: block;
+        width: 50px;
+    }
+}
+
+@include desktop{
+    .header-toggle{
+        display: none;
+    }
+    .header-nav{
+        position: static;
+        top: 0;
+        width: auto;
+        height: 100%;
+        background-color: transparent;
+        opacity: 1;
+        visibility: visible;
+    }
+    .header-nav-container{
+        flex-direction: row-reverse;
+        width: auto;
+        max-width: inherit;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    .header-nav-items{
+        margin-top: 0;
+        display: flex;
+        align-items: center;
+    }
+    .header-nav-item{
+        line-height: inherit;
+        width: 100%;
+    }
+    .header-nav-item:last-child{
+        display: none;
+    }
+    .header-nav-item:not(:nth-child(7)){
+        padding-right: 30px;
+    }
+    .header-nav-item__link{
+        font-size: 16px;
+    }
+    .header-nav-links{
+        display: flex;
+        height: 40px;
+    }
+    .header-nav-link{
+        font-size: 1em;
+    }
+    .header-nav-link:nth-child(1){
+        margin-right: 5px;
+    }
+
+    // NAO MEXIDO
+    // header-nav-sub
+    .header-nav-sub{
+        display: none;
+    }
+    .header-nav-sub__link{
+        display: inline-block;
+        font-size: 1em;
+        color: $pink;
+    }
+    
+    // arrow header-nav-item
+    .header-nav-item:not(:nth-child(1n+5)):before{
+            top: 0;
+            left: -12px;
+            height: 15px;
+    }
+    .header-nav-item:nth-child(1n+5):before{
+        display: none;
+    }
+    
+}
+@include desktop{
+    .header-nav-item:not(:nth-child(7)) {
+        padding-left: 5px;
+    }
+    .header-nav-item:hover .header-nav-sub{
+        display: block;
+        position: absolute;
+        border: 1px solid $pink;
+        padding: 10px;
+    }
+    .header-nav-item:nth-child(1):before{
+        display: none;
+    }
+    .header-nav-item:not(:nth-child(1n+5)):before {
+        position: absolute;
+    }
+    .header-nav-item:hover::before{
+        position: absolute;
+        transition: 0.1s;
+        transform: rotate(90deg);
+    }
+    .header-nav-sub__link:hover{
+        text-decoration: underline;
+    }
+}

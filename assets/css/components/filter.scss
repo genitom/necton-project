@@ -1,0 +1,136 @@
+.filter{
+    background-color: $azul;
+    color: white;
+    text-align: left;
+    padding: 20px 0;
+    font-size: 16px;
+}
+.filter-wrapper{}
+.filter-header{
+    &__title{
+        font-size: 2.5em;
+        margin-bottom: 20px;
+        font-weight: 400;
+        span{
+            color: $pink;
+        }
+    }
+    p{
+        font-size: 0.81em;
+        font-weight: 300;
+        line-height: 16px;
+    }
+}
+.filter-container{}
+.filter-items{
+    margin-top: 20px;
+}
+.filter-item{
+    margin-bottom: 20px;
+    p{
+        font-size: 1em;
+        font-weight: 300;
+        padding: 10px 5px;
+    }
+}
+.filter-item:nth-child(1n+4){
+    display: none;
+}
+.filter-item:last-child{
+    display: block;
+}
+
+// Item icone
+.filter-item--icone{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.filter-item-icone{
+    width: 50px;
+    height: 50px;
+    display: block;
+    border-radius: 50%;
+    background-color: $pink;
+    position: relative;
+    cursor: pointer;
+    z-index: 3;
+    margin: 0 auto;
+    &::after,&::before{
+        content: '';
+        display: block;
+        height: 25px;
+        width: 2px;
+        background-color: $azul;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+    }
+    &::before{
+        transform: translate(-50%,-50%) rotate(-90deg);
+    }
+}
+
+.filter-item__title{}
+.filter-item__title > span{
+    background-color:$pink;
+    padding: 5px;
+    display: inline-block;
+    margin-top: 5px;
+    font-weight: 500;
+    font-size: 1.56em;
+    color: $azul;
+}
+
+
+// data-anime filter    
+
+[data-anime]{
+    opacity: 0;
+    transition: .8s ease;
+}
+[data-anime="up"]{
+    transform: translate3d(0,-80px,0)
+}
+[data-anime="down"]{
+    transform: translate3d(0,80px,0)
+}
+[data-anime="left"]{
+    transform: translate3d(-80px,0,0)
+}
+[data-anime="right"]{
+    transform: translate3d(80px,0,0)
+}
+[data-anime].animate{
+    opacity: 1;
+    transform: translate3d(0,0,0);
+}
+
+@include tablet{
+    .filter{
+        font-size: 18px;
+    }
+    .filter-items{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-top: 60px;
+    }
+    .filter-item{
+        width: 285px;
+    }
+    .filter-item:nth-child(1n+4){
+        display: block;
+    }
+}
+
+@include desktop{
+    .filter-header__title {
+        font-size: 3.5em;
+    }
+    .filter-header p {
+        font-size: 0.95em;
+        line-height: 20px;
+    }
+}

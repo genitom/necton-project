@@ -1,0 +1,17 @@
+
+.stop-scrolling {
+    height: 100%;
+    overflow: hidden;
+  }
+  .fade{
+        animation: fade;
+        animation-duration: 0.3s;
+  }
+  @keyframes fade{
+          0% {
+                  opacity: 0.3;
+          }
+          100%{
+                  opacity: 1;
+          }
+  }
